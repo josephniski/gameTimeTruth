@@ -44,12 +44,19 @@ class truthOrDrink():
             print(name_row[rand_row])
             name_row.remove(name_row[rand_row])
 
+    def checkPlayer(self, name):
+        if name in self.row[0][1]:
+            self.players.append(name)
+            print("You added " + name + " to the game. Anyone else? (Y/N)")
+        else:
+            print("This game is not for that person")
+            print("Would you like to add anyone else to the game? (Y/N)")
+            
     def whoIsPlaying(self):
         print("Who is playing?")
         name = input().lower()
-        self.players.append(name)
-        while True:      
-            print("You added " + name + " to the game. Anyone else? (Y/N)")
+        self.checkPlayer(name)
+        while True:                  
             continue_ = input().lower()
             if continue_ == 'n':
                 break
@@ -59,14 +66,14 @@ class truthOrDrink():
                 if name in self.players:
                     print("This player already exists, try again...")
                 else:
-                    self.players.append(name)
+                    self.checkPlayer(name)
             else:
                 print("Please type Y or N to continue")
                                            
 
     def runGame(self):
-        self.whoIsPlaying()
         self.populate()
+        self.whoIsPlaying()
         print("This is who is playing!")
         print(self.players)
         while(True):
@@ -74,14 +81,14 @@ class truthOrDrink():
             name = input().lower()
             if name == 'no one':
                 name = ''
-            if name in self.row[0][1]:
+            #if name in self.row[0][1]:
+            if name in self.players:
                 self.printQuestion(name)
             elif name == "done":
                 print("Thank you for playing!")
                 exit(0)
             else:
                 print("This person does not exist, try again...")
-                self.runGame()
             
 
 game = truthOrDrink()
