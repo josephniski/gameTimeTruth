@@ -58,11 +58,9 @@ class truthOrDrink():
                 if q == name:
                     list_len = len(self.players_questions[count]) #get len of list
                     rand_row = random.randint(1, (list_len - 1))#generate random number
-                    print(rand_row)
                     print(self.players_questions[count][rand_row]) #return question
                     self.asked_questions.append(self.players_questions[count][rand_row]) #add question to asked questions list
-                    #TO DO #
-                    self.players_questions.remove(self.players_questions[count][rand_row]) #remove question from list
+                    self.players_questions[count].remove(self.players_questions[count][rand_row]) #remove question from list
                     break
                 count += 1
 
