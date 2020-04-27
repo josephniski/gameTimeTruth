@@ -18,7 +18,6 @@ class truthOrDrink():
     def populate(self): #populates the initial list of questions from csv (once)
         with open('stowe_truth_drink.csv') as csv_file:
                 csv_reader = csv.reader(csv_file, delimiter=',')
-                #self.row.append("none")
                 for rows in csv_reader:
                     if rows[0] not in (None, ''):
                         self.row_count += 1
@@ -53,7 +52,7 @@ class truthOrDrink():
             print("Would you like to add anyone else to the game? (Y/N)")
             
     def whoIsPlaying(self):
-        print("Who is playing?")
+        print("Please enter a player")
         name = input().lower()
         self.checkPlayer(name)
         while True:                  
@@ -72,23 +71,25 @@ class truthOrDrink():
                                            
 
     def runGame(self):
-        self.populate()
-        self.whoIsPlaying()
+        print("Welcome to Truth or Drink!") #Intro to the game 
+        self.populate() #populating the local list of questions
+        self.whoIsPlaying() #takes in the names of everyone playing
+
         print("This is who is playing!")
         print(self.players)
         while(True):
             print("Who are you targeting?")
             name = input().lower()
-            if name == 'no one':
+            if name == 'no one' or name == "anyone":
                 name = ''
             #if name in self.row[0][1]:
-            if name in self.players:
+            if name in self.players or name == '':
                 self.printQuestion(name)
             elif name == "done":
                 print("Thank you for playing!")
                 exit(0)
             else:
-                print("This person does not exist, try again...")
+                print("This person is not playing in this game, try again...")
             
 
 game = truthOrDrink()
