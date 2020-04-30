@@ -104,7 +104,6 @@ class truthOrDrink():
             name = input().lower()
             if name == 'no one' or name == "anyone":
                 name = ''
-            #if name in self.row[0][1]:
             if name in self.players_list or name == '':
                 self.printQuestion(name)
             elif name == "done":
