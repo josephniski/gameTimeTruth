@@ -109,6 +109,8 @@ class truthOrDrink():
             elif name == "done":
                 print("Thank you for playing!")
                 exit(0)
+            elif name == "add":
+                self.checkPlayer(name)
             else:
                 print("This person is not playing in this game, try again...")
             
