@@ -110,7 +110,7 @@ class truthOrDrink():
                 print("Thank you for playing!")
                 exit(0)
             elif name == "add":
-                self.checkPlayer(name)
+                self.checkPlayer(name) #might switch to be part of else case if i can figure out how to do it
             else:
                 print("This person is not playing in this game, try again...")
             
