@@ -1,9 +1,3 @@
-# last_board = 
-# 	{a1:"R", b1:"N", c1:"B", d1:"Q", e1:"K", f1:"B", g1:"N", h1:"R",
-# 	 a}
-
-# curr_board = 
-# {}
 #columns are letters, rows are numbers
 def initialize_base_board():
 	letters = ["a", "b", "c", "d", "e", "f", "g", "h"]
@@ -21,9 +15,9 @@ def initialize_base_board():
 					last_board[spot] = "N"
 				elif (col == "c")  or (col == "f"):
 					last_board[spot] = "B"
-				elif (col == "d"):
+				elif col == "d":
 					last_board[spot] = "Q"
-				elif (col == "e"):	
+				elif col == "e":
 					last_board[spot] = "K"
 
 	print(last_board)
